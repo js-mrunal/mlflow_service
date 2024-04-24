@@ -1,0 +1,21 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+mlflow = "*"
+sqlalchemy = "*"
+pg8000 = "*"
+uvicorn = "*"
+fastapi = "*"
+google-cloud = "*"
+google-cloud-storage = "*"
+google-cloud-secret-manager = "*"
+google-api-python-client = "*"
+psycopg2-binary = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.11"
