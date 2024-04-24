@@ -35,6 +35,6 @@ gcp-run: gcp-push
 	--add-cloudsql-instances="${SQL_INSTANCE}" --project="${GCP_PROJECT}"
 
 gcp-deploy:
-	gcloud beta builds submit --project=gcp-ml-dive \
+	gcloud beta builds submit --project=${GCP_PROJECT} \
 	--config=./cloudbuild.yaml  \
 	--substitutions=_SERVICE_ACCOUNT="${SERVICE_ACCOUNT}",_SQL_INSTANCE="${SQL_INSTANCE}" .

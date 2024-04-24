@@ -1,8 +1,13 @@
 set -e
 
-export GCP_PROJECT="gcp-ml-dive"
-export ARTIFACT_URL="$(python3 get_authentication.py --project='gcp-ml-dive' --secret='mlflow_artifact_url')"
-export DATABASE_URL="$(python3 get_authentication.py --project='gcp-ml-dive' --secret='mlflow_database_url')"
+# Verify that all required variables are set
+if [[ -z "${GCP_PROJECT}" ]]; then
+    echo "Error: GCP_PROJECT not set"
+    exit 1
+fi
+
+export ARTIFACT_URL="$(python3 get_authentication.py --project="${GCP_PROJECT}" --secret=mlflow_artifact_url)"
+export DATABASE_URL="$(python3 get_authentication.py --project="${GCP_PROJECT}" --secret=mlflow_database_url)"
 
 if [[ -z "${ARTIFACT_URL}" ]]; then
     echo "Error: ARTIFACT_URL not set"

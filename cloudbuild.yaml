@@ -19,7 +19,9 @@ steps:
         "--allow-unauthenticated", # authentication handled on the backend
         "--memory=4Gi",
         "--service-account=${_SERVICE_ACCOUNT}",
-        "--add-cloudsql-instances=${_SQL_INSTANCE}"
+        "--add-cloudsql-instances=${_SQL_INSTANCE}",
+        "--set-env-vars",
+        "GCP_PROJECT=$PROJECT_ID",
       ]
 
   # - name: "gcr.io/google.com/cloudsdktool/cloud-sdk"
